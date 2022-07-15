@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>글 목록</title>
+</head>
+<body th:align="center">
+        <h1>게시글 목록</h1>
+        <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="700">
+            <tr>
+                <th bgcolor="orange" width="100">번호</th>
+                <th bgcolor="orange" width="200">제목</th>
+                <th bgcolor="orange" width="150">작성자</th>
+                <th bgcolor="orange" width="150">등록일</th>
+                <th bgcolor="orange" width="100">조회수</th>
+            </tr>
+            <tr th:each="board, state:${boardList}">
+            	<td th:text="${state.count}"/>
+            	<td><a th:href="@{/getBoard(seq=${board.seq})}" th:text="${board.title}"></a></td>
+            	<td th:text="${board.writer}"/>
+            	<td th:text="${board.createDate}"/>
+            	<td th:text="${board.cnt}"/>
+            </tr>
+            
+            <!--  
+            <c:forEach var="board" items="${boardList}">
+            <tr>
+                <td>${board.seq }</td>
+                <td align="left"><a href="getBoard?seq=${board.seq}">${board.title}</a></td>
+                <td>${board.writer }</td>
+                <td><fmt:formatDate value="${board.createDate }"
+                                    pattern="yyyy-MM-dd"></fmt:formatDate></td>
+                <td>${board.cnt}</td>
+            </tr>
+            </c:forEach>
+           -->
+        </table>
+        <br>
+        <a th:href="@{/insertBoard}">글 등록</a>
+</body>
+</html>

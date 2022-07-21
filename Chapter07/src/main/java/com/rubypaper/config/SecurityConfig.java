@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
-    //인증하지 않은 유저가 인증자들만 들어갈 수 있는 페이지를 요청하면 로그인 페이지로 이동
+//    인증하지 않은 유저가 인증자들만 들어갈 수 있는 페이지를 요청하면 로그인 페이지로 이동
 //    @Autowired
 //    public void authenticate(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.inMemoryAuthentication().
